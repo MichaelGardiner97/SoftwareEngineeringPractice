@@ -33,7 +33,7 @@ class BankAccountTest {
 
         assertEquals("a@b.com", bankAccount.getEmail());
         assertEquals(200, bankAccount.getBalance());
-        //check for exception thrown correctly
+        //check for exception thrown correctly haha
         assertThrows(IllegalArgumentException.class, ()-> new BankAccount("", 100));
     }
 
