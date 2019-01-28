@@ -57,6 +57,7 @@ class BankAccountTest {
         assertFalse(BankAccount.isEmailValid("user@domaincom"));
         assertFalse(BankAccount.isEmailValid("user#domain.com"));
         assertFalse(BankAccount.isEmailValid("@yahoo.com"));
+        assertFalse(BankAccount.isEmailValid("m@123@yahoo.com"));
     }
 
     @Test

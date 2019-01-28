@@ -71,6 +71,9 @@ public class BankAccount {
      */
     public static boolean isAmountValid(double amount){
 
-        return (amount < 0 || BigDecimal.valueOf(amount).scale() > 2);
+        if (amount < 0 || BigDecimal.valueOf(amount).scale() > 2) {
+            return false;
+        }
+        return true;
     }
 }
