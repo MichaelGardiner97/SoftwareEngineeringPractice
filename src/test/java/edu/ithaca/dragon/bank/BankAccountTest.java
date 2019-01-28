@@ -13,12 +13,20 @@ class BankAccountTest {
         assertEquals(200, bankAccount.getBalance());
     }
 
+    /**
+     * Should withdraw specified funds IF available in account
+     */
     @Test
     void withdrawTest() {
         BankAccount bankAccount = new BankAccount("a@b.com", 200);
         bankAccount.withdraw(100);
-
         assertEquals(100, bankAccount.getBalance());
+
+        bankAccount.withdraw(100);
+        assertEquals(0, bankAccount.getBalance());
+
+        bankAccount.withdraw(100);
+        assertNotEquals(0, bankAccount.getBalance());
     }
 
     @Test
