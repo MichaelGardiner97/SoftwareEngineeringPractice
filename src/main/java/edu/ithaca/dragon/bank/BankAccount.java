@@ -39,7 +39,7 @@ public class BankAccount {
     /**
      * @post reduces the balance by amount if amount is non-negative and smaller than balance
      */
-    public void withdraw (double amount) {
+    public void withdraw(double amount) {
 
         if (isAmountValid(amount)) {
 
@@ -69,16 +69,8 @@ public class BankAccount {
      * @param amount a double to be verified
      * @return true if amount has no more than 2 decimal places and is positive
      */
-    public static boolean isAmountValid(Double amount){
+    public static boolean isAmountValid(double amount){
 
-        if (amount < 0) {
-            return false;
-        }
-
-        if ((BigDecimal.valueOf(amount).scale() > 2)) {
-            return false;
-        }
-
-        return true;
+        return (amount < 0 || BigDecimal.valueOf(amount).scale() > 2);
     }
 }
