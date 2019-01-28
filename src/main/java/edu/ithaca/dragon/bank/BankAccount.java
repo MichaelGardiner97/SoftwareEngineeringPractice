@@ -30,7 +30,12 @@ public class BankAccount {
      * @post reduces the balance by amount if amount is non-negative and smaller than balance
      */
     public void withdraw (double amount)  {
-        balance -= amount;
+
+        if (balance - amount >= 0) {
+            balance -= amount;
+        } else {
+            System.out.println("Cannot withdraw amount of: " + amount + " with a balance of: " + balance);
+        }
     }
 
     /**
