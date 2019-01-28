@@ -31,16 +31,15 @@ public class BankAccount {
      */
     public void withdraw (double amount)  {
         balance -= amount;
-
     }
 
-
+    /**
+     * @param email the string to be verified as an email
+     * @post returns true if param starts with a valid sequence, contains '@',
+     * and ends with a valid sequence (with the last set of letters having a count of 3)
+     */
     public static boolean isEmailValid(String email){
-        if (email.indexOf('@') == -1){
-            return false;
-        }
-        else {
-            return true;
-        }
+
+        return email.matches("[a-zA-Z0-9\\.]+@[a-zA-Z0-9\\-\\_\\.]+\\.[a-zA-Z]{3}");
     }
 }

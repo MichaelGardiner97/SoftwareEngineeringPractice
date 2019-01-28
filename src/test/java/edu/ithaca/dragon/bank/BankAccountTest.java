@@ -23,8 +23,17 @@ class BankAccountTest {
 
     @Test
     void isEmailValidTest(){
+
         assertTrue(BankAccount.isEmailValid( "a@b.com"));
-        assertFalse( BankAccount.isEmailValid(""));
+        assertTrue(BankAccount.isEmailValid("user@domain.com"));
+        assertTrue(BankAccount.isEmailValid("user1@domain.com"));
+        assertTrue(BankAccount.isEmailValid("user.name@domain.com"));
+
+        assertFalse(BankAccount.isEmailValid(""));
+        assertFalse(BankAccount.isEmailValid("user@domaincom"));
+        assertFalse(BankAccount.isEmailValid("user#domain.com"));
+        assertFalse(BankAccount.isEmailValid("@yahoo.com"));
+        assertFalse(BankAccount.isEmailValid("user@domain.co.in"));
     }
 
     @Test
@@ -33,7 +42,7 @@ class BankAccountTest {
 
         assertEquals("a@b.com", bankAccount.getEmail());
         assertEquals(200, bankAccount.getBalance());
-        //check for exception thrown correctly haha
+        //check for exception thrown correctly
         assertThrows(IllegalArgumentException.class, ()-> new BankAccount("", 100));
     }
 
