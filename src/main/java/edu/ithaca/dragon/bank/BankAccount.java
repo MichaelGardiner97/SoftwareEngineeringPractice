@@ -58,16 +58,15 @@ public class BankAccount {
     /**
      * @param email the string to be verified as an email
      * @return true if param starts with a valid sequence, contains '@',
-     * and ends with a valid sequence (with the last set of letters having a count of 3)
+     * and ends with a valid sequence (with the last set of letters having a count between 2 and 4)
      */
     public static boolean isEmailValid(String email){
-
-        return email.matches("[a-zA-Z0-9\\.]+@[a-zA-Z0-9\\-\\_\\.]+\\.[a-zA-Z]{3}");
+        return email.matches("[a-zA-Z0-9\\.]+@[a-zA-Z0-9\\-\\_\\.]+\\.[a-zA-Z]{2,4}");
     }
 
     /**
      *
-     * @param amount
+     * @param amount a double to be verified
      * @return true if amount has no more than 2 decimal places and is positive
      */
     public static boolean isAmountValid(Double amount){

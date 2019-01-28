@@ -18,8 +18,10 @@ class BankAccountTest {
      */
     @Test
     void withdrawTest() {
+
         BankAccount bankAccount = new BankAccount("a@b.com", 200);
         bankAccount.withdraw(100);
+
         assertEquals(100, bankAccount.getBalance());
 
         bankAccount.withdraw(100);
@@ -48,12 +50,13 @@ class BankAccountTest {
         assertTrue(BankAccount.isEmailValid("user@domain.com"));
         assertTrue(BankAccount.isEmailValid("user1@domain.com"));
         assertTrue(BankAccount.isEmailValid("user.name@domain.com"));
+        assertTrue(BankAccount.isEmailValid("user@domain.co.in"));
+        assertTrue(BankAccount.isEmailValid("user@domain.coin"));
 
         assertFalse(BankAccount.isEmailValid(""));
         assertFalse(BankAccount.isEmailValid("user@domaincom"));
         assertFalse(BankAccount.isEmailValid("user#domain.com"));
         assertFalse(BankAccount.isEmailValid("@yahoo.com"));
-        assertFalse(BankAccount.isEmailValid("user@domain.co.in"));
     }
 
     @Test
